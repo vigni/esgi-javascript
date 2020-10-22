@@ -1,3 +1,3 @@
-exports.ifString = (str) => {
-  return typeof str == "string" ? true : false;
+exports.verifMessage = (str) => {
+  return (typeof str == "string" && str !== "" ) ? true : false;
 }

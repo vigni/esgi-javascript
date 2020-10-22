@@ -1,17 +1,21 @@
-const handleError =  require("./handleError")
 const utils = require("./utils")
 
 const hello = "hello world";
 
-const allResults = (message) => {
-  if(handleError.ifString(message)) {
-    console.log(`ucFirst : ${utils.ucFirst(message)}`);
-    console.log(`capitalize: ${utils.capitalize(message)}`);
-    console.log(`camelCase: ${utils.camelCase(message)}`);
-    console.log(`snakeCase: ${utils.snakeCase(message)}`);
-  } else {
-    console.log("")
+const prairie = {
+  animal: {
+    type: {
+      name: "chien"
+    }
   }
 }
 
-allResults(hello);
+
+console.log(`ucFirst : ${utils.ucFirst(hello)}`);
+console.log(`capitalize: ${utils.capitalize(hello)}`);
+console.log(`camelCase: ${utils.camelCase(hello)}`);
+console.log(`snakeCase: ${utils.snakeCase(hello)}`);
+console.log(`leet: ${utils.leet(hello)}`)
+console.log(`prop_access: ${utils.prop_access(prairie, "animal.type")}`)
+console.log(`verlan: ${utils.verlan(hello)}`)
+console.log(`yoda: ${utils.yoda(hello)}`)
