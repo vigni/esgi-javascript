@@ -1,10 +1,4 @@
-const prairie = {
-  animal: {
-    type: {
-      name: "chien"
-    }
-  }
-}
+let prairie;
 const hello = "toggle case is the coolest"
 
 //ucfirst
@@ -53,20 +47,22 @@ const yoda = (str) => {
 }
 
 const prop_access = (object, path) => {
-  if (typeof object !== "object" || object === null) return "First param must be an object";
   if (typeof path !== "string" || path == "") return object;
+  if(typeof element !== "object" || element == null) {
+    console.log(path + " not exist");
+    return;
+  }
 
   path.split(".").map(e => { 
     if(object.hasOwnProperty(e)) return object = object[e];
-    object = e + " not exist";
+    object = path + " not exist";
   });
   
   return object;
 }
 
 const type_check_v1 = (value, type) => {
-  console.log(typeof null)
-  return typeof null === "null" ? true : false
+  return typeof value === type ? true : false
 }
 console.log(`ucfirst : ${ucfirst(hello)}`);
 console.log(`capitalize: ${capitalize(hello)}`);
