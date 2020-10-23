@@ -9,27 +9,27 @@ const hello = "toggle case is the coolest"
 
 //ucfirst
 const ucfirst = (str) => {
-  if (typeof str !== "string" || str == "") return "";
+  if (typeof str !== "string" || str === "") return "";
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 //capitalize
 const capitalize = (str) => {
-  if (typeof str !== "string" || str == "") return "";
+  if (typeof str !== "string" || str === "") return "";
 
   return str.toLowerCase().split(' ').map(w => ucfirst(w)).join(' ');
 }
 
 // camelCAse
 const camelCase = (str) => {
-  if (typeof str !== "string" || str == "") return "";
+  if (typeof str !== "string" || str === "") return "";
   return capitalize(str.replace(/_/g, ' ')).replace(/\W/g, "");
   return 
 }
 
 //snake_case
 const snake_case = (str) => {
-  if (typeof str !== "string" || str == "") return "";
+  if (typeof str !== "string" || str === "") return "";
   return str.replace(/ /g, '_').toLowerCase();
 }
 
@@ -41,19 +41,19 @@ const leet = (str) => {
 }
 
 const verlan = (str) => {
-  if (typeof str !== "string" || str == "") return "";
+  if (typeof str !== "string" || str === "") return "";
   return str.split(" ").map(word => {
     return word.split("").reverse().join("");
   }).join(" ")
 }
 
 const yoda = (str) => {
-  if (typeof str !== "string" || str == "") return "";
+  if (typeof str !== "string" || str === "") return "";
   return str.split(" ").reverse().join(" ");
 }
 
 const prop_access = (object, path) => {
-  if (typeof object !== "object" || object == null) return "First param must be an object";
+  if (typeof object !== "object" || object === null) return "First param must be an object";
   if (typeof path !== "string" || path == "") return object;
 
   path.split(".").map(e => { 
@@ -61,7 +61,7 @@ const prop_access = (object, path) => {
     object = e + " not exist";
   });
   
-  return JSON.stringify(object);
+  return object;
 }
 
 const type_check_v1 = (value, type) => {
