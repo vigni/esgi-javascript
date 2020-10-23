@@ -27,7 +27,7 @@ const camelCase = (str) => {
 }
 
 //snake_case
-const snakeCase = (str) => {
+const snake_case = (str) => {
   if (typeof str !== "string" || str.length == 0) return "";
   return str.replace(" ", "_")
 }
@@ -53,7 +53,7 @@ const yoda = (str) => {
 
 const prop_access = (object, path) => {
   if (typeof object !== "object" || object == null) return "First param must be an object";
-  if (typeof path !== "string" || path.length == 0) return "Second param must be a string with at least 1 caractère";
+  if (typeof path !== "string" || path.length == 0) return object;
 
   path.split(".").map(e => { 
     if(object.hasOwnProperty(e)) return object = object[e];
@@ -63,14 +63,16 @@ const prop_access = (object, path) => {
   return JSON.stringify(object);
 }
 
-// const type_check_v1 = (type, value) => {
-//   value === typeof 
-// }
-console.log(`ucfirst : ${ucfirst(hello)}`);
-console.log(`capitalize: ${capitalize(hello)}`);
-console.log(`camelCase: ${camelCase(hello)}`);
-console.log(`snakeCase: ${snakeCase(hello)}`);
-console.log(`leet: ${leet(hello)}`)
-console.log(`prop_access: ${prop_access(prairie, "animal.type")}`)
-console.log(`verlan: ${verlan(hello)}`)
-console.log(`yoda: ${yoda(hello)}`)
+const type_check_v1 = (value, type) => {
+  console.log(typeof value)
+  return value == typeof type ? true : false
+}
+// console.log(`ucfirst : ${ucfirst(hello)}`);
+// console.log(`capitalize: ${capitalize(hello)}`);
+// console.log(`camelCase: ${camelCase(hello)}`);
+// console.log(`snake_case: ${snake_case(hello)}`);
+// console.log(`leet: ${leet(hello)}`)
+// console.log(`prop_access: ${prop_access(prairie, "animal.type")}`)
+// console.log(`verlan: ${verlan(hello)}`)
+// console.log(`yoda: ${yoda(hello)}`)
+console.log(type_check_v1("test", "number"))
