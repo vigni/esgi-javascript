@@ -6,6 +6,7 @@ const prairie = {
   }
 }
 hello = "hello world"
+
 //ucfirst
 const ucFirst = (str) => {
   if (typeof str !== "string" || str.length == 0) return element;
