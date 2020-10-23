@@ -64,11 +64,11 @@ const prop_access = (object, path) => {
 }
 
 
-console.log(`ucFirst : ${ucFirst(hello)}`);
-console.log(`capitalize: ${capitalize(hello)}`);
-console.log(`camelCase: ${camelCase(hello)}`);
-console.log(`snakeCase: ${snakeCase(hello)}`);
-console.log(`leet: ${leet(hello)}`)
-console.log(`prop_access: ${prop_access(prairie, "animal.type")}`)
-console.log(`verlan: ${verlan(hello)}`)
-console.log(`yoda: ${yoda(hello)}`)
+// console.log(`ucFirst : ${ucFirst(hello)}`);
+// console.log(`capitalize: ${capitalize(hello)}`);
+// console.log(`camelCase: ${camelCase(hello)}`);
+// console.log(`snakeCase: ${snakeCase(hello)}`);
+// console.log(`leet: ${leet(hello)}`)
+// console.log(`prop_access: ${prop_access(prairie, "animal.type")}`)
+// console.log(`verlan: ${verlan(hello)}`)
+// console.log(`yoda: ${yoda(hello)}`)
