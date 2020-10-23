@@ -1,4 +1,10 @@
-let prairie;
+let prairie = {
+  animal : {
+    type: {
+      name: "chien"
+    }
+  }
+}
 const hello = "toggle case is the coolest"
 
 //ucfirst
@@ -50,10 +56,9 @@ const prop_access = (object, path) => {
   if (typeof object !== "object" || object === null) return object + " not exist";
   if (typeof path !== "string" || path == "") return object;
 
-
   path.split(".").map(e => { 
     if(object.hasOwnProperty(e)) return object = object[e];
-    object = path + " not exist";
+    console.log(path + " not exist") 
   });
   
   return object;
@@ -67,7 +72,7 @@ console.log(`capitalize: ${capitalize(hello)}`);
 console.log(`camelCase: ${camelCase(hello)}`);
 console.log(`snake_case: ${snake_case(hello)}`);
 console.log(`leet: ${leet(hello)}`)
-console.log(`prop_access: ${prop_access(prairie, "animal.type")}`)
+console.log(`prop_access: ${prop_access(prairie, "animal.gender")}`)
 console.log(`verlan: ${verlan(hello)}`)
 console.log(`yoda: ${yoda(hello)}`)
 console.log(type_check_v1(null, null))
