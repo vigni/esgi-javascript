@@ -1,3 +1,11 @@
+const prairie = {
+  animal: {
+    type: {
+      name: "chien"
+    }
+  }
+}
+hello = "hello world"
 //ucfirst
 const ucFirst = (str) => {
   if (typeof str !== "string" || str.length == 0) return element;
@@ -54,13 +62,12 @@ const prop_access = (object, path) => {
   return JSON.stringify(object);
 }
 
-module.exports = {
-  ucFirst,
-  capitalize,
-  camelCase,
-  snakeCase,
-  leet,
-  prop_access,
-  verlan,
-  yoda
-};
+
+console.log(`ucFirst : ${ucFirst(hello)}`);
+console.log(`capitalize: ${capitalize(hello)}`);
+console.log(`camelCase: ${camelCase(hello)}`);
+console.log(`snakeCase: ${snakeCase(hello)}`);
+console.log(`leet: ${leet(hello)}`)
+console.log(`prop_access: ${prop_access(prairie, "animal.type")}`)
+console.log(`verlan: ${verlan(hello)}`)
+console.log(`yoda: ${yoda(hello)}`)
