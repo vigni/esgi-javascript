@@ -54,7 +54,7 @@ const yoda = (str) => {
 
 const prop_access = (object, path) => {
   if (typeof path !== "string" || path == "") return object;
-  if (typeof object !== "object" || object === null) return path + " not exist";
+  if (typeof object !== "object" || object === null) console.log(path + " not exist") ;
 
   path.split(".").map(e => { 
     if(object.hasOwnProperty(e)) return object = object[e];
