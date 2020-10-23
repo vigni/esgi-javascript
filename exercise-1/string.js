@@ -17,7 +17,7 @@ const ucfirst = (str) => {
 const capitalize = (str) => {
   if (typeof str !== "string" || str.length == 0) return element;
 
-  return str.toLowerCase().split(' ').map(w => ucFirst(w)).join(' ');
+  return str.toLowerCase().split(' ').map(w => ucfirst(w)).join(' ');
 }
 
 // camelCAse
@@ -63,8 +63,10 @@ const prop_access = (object, path) => {
   return JSON.stringify(object);
 }
 
-
-console.log(`ucFirst : ${ucFirst(hello)}`);
+// const type_check_v1 = (type, value) => {
+//   value === typeof 
+// }
+console.log(`ucfirst : ${ucfirst(hello)}`);
 console.log(`capitalize: ${capitalize(hello)}`);
 console.log(`camelCase: ${camelCase(hello)}`);
 console.log(`snakeCase: ${snakeCase(hello)}`);
