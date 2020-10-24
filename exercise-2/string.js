@@ -47,28 +47,25 @@ const type_check_v2 = (value, conf) => {
 }
 
 const type_check = (object, conf) => {
-  for(key in conf) {
-    switch (key) {
-      case "type": if(!type_check_v1(object, conf.type)) return false;
-      case "properties":
-        for(key in conf.properties){
-          if(conf.properties[key].hasOwnProperty("properties")){
-            if (!type_check(object[key], conf.properties[key])) return false;
-          } 
-          console.log(object[key], conf.properties[key])
-          if(!type_check_v2(object[key], conf.properties[key])) return false;
-        }
+  if(type_check_v1(object, conf.type)) {
+    for(key in conf.properties){
+      if(conf.properties[key].hasOwnProperty("properties")){
+        if (!type_check(object[key], conf.properties[key])) return false;
+      } else {
+        if(!type_check_v2(object[key], conf.properties[key])) return false;
+      }
     }
+    return true
   }
-  return true;
+  return false;
 }
 
 console.log(type_check(
   {
     id: 5,
-    name: 'nicolas',
+    name: "nicolas",
     detail: {
-      age: 21
+      age: 12
     },
     sport: ['foot', 'tennis'],
   },
