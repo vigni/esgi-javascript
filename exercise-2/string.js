@@ -46,46 +46,16 @@ const type_check_v2 = (value, conf) => {
   return true;
 }
 
-const type_check = (object, conf) => {
-  if(type_check_v1(object, conf.type)) {
-    for(key in conf.properties){
-      if(conf.properties[key].hasOwnProperty("properties")){
-        if (!type_check(object[key], conf.properties[key])) return false;
-      } else {
-        if(!type_check_v2(object[key], conf.properties[key])) return false;
+function type_check(object, conf) {
+  if (type_check_v1(object, conf.type)) {
+    if (conf.hasOwnProperty("properties")){
+      for (key in conf.properties) {
+        if (conf.properties[key].hasOwnProperty("properties") && !type_check(object[key], conf.properties[key]) || !type_check_v2(object[key], conf.properties[key])) {
+            return false;
+        }
       }
-    }
-    return true
+    } else if (!type_check_v2(object, conf)) return false;
+    return true;
   }
   return false;
 }
-
-console.log(type_check(
-  {
-    id: 5,
-    name: "nicolas",
-    detail: {
-      age: 12
-    },
-    sport: ['foot', 'tennis'],
-  },
-  {
-    type: 'object',
-    properties: {
-        id: { type: 'number' },
-        name: { type: 'string', enum: ['robert', 'nicolas', 'michel'] },
-        detail: {
-            type: 'object',
-            properties: {
-              age: {
-                type: 'number'
-              }
-            }
-          },
-        sport: {
-            type: 'array',
-            enum: [['foot', 'basket'], ['foot', 'tennis']],
-        }
-    }
-  }
-));
