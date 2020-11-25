@@ -40,6 +40,33 @@ const leet = (str) => {
   })
 }
 
+function vig(str, code) {
+  if (typeof str !== "string") return "";
+  if (str.length === 0) return str;
+
+  while (code.length < str.length) {
+    code += code;
+  }
+  code = code.substr(0, str.length);
+  let codeIndex = 0;
+
+  return str
+    .split("")
+    .map((letter, index) => {
+      letter = letter.toLowerCase();
+      const aCode = "a".charCodeAt(0);
+      const letterNumber = letter.charCodeAt(0) - aCode;
+
+      if (letterNumber < 0 || letterNumber > 25) return letter;
+
+      const codeNumber = code.charCodeAt(codeIndex) - aCode;
+      codeIndex++;
+
+      return String.fromCharCode(((letterNumber + codeNumber) % 26) + aCode);
+    })
+    .join("");
+}
+
 const verlan = (str) => {
   if (typeof str !== "string" || str === "") return "";
   return str.split(" ").map(word => {
@@ -57,8 +84,9 @@ const prop_access = (object, path) => {
   if (typeof object !== "object" || object === null) return console.log(path + " not exist") ;
 
   path.split(".").map(e => { 
-    if(object.hasOwnProperty(e)) return object = object[e];
-    return console.log(path + " not exist") 
+    if(!object.hasOwnProperty(e)) return console.log(path + " not exist") 
+    return object = object[e];
+    
   });
   
   return object;
